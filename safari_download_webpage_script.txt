@@ -5,12 +5,11 @@
 tell application "Safari"
 	activate
 	set URL of document 1 to "URL here"
-	delay 5
+	delay 5 -- while waiting for document to load
 	set myString to source of document 1
+	quit
 end tell
 set newFile to POSIX file "PATH here"
 open for access newFile with write permission
 write myString to newFile
 close access newFile
-tell application "Safari" to quit
-
