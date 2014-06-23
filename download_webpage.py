@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# save_web_page.py
+# download_webpage.py
 # David Prager Branner
 # 20140623
 
@@ -9,12 +9,12 @@ import datetime
 import time
 import sys
 
-# Get base name of file to save
+# Get base name of file to save.
 if os.path.exists('name_to_save_as.ignore'):
     with open('name_to_save_as.ignore', 'r') as f:
         name_to_save_as = f.read()
 elif os.path.exists('url.ignore'):
-    # Get path only of 
+    # Get path only of URL.
     with open('url.ignore', 'r') as f:
         url = f.read()
         name_to_save_as = url.split('/')[-1].split('.')[0]

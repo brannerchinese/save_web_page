@@ -16,8 +16,8 @@ This is a Python3 program. No special modules are needed.
    2. Log in with Safari, using your credentials for the site in question.
    2. In order to ensure correct permissions for writing the webpage, and to make it executable from the command line, set
 
-        sudo chown root save_web_page.py
-        sudo chmod a+x save_web_page.py
+        sudo chown root download_webpage.py
+        sudo chmod a+x download_webpage.py
 
      Note that if you don't have root privileges, you will not be able to run this program.
 

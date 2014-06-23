@@ -1,4 +1,4 @@
-(* File: safari_save_page.scpt
+(* File: safari_download_webpage.scpt
    Author, date: David Prager Branner, 20140623
    Open webpage and write contents to disk. *)
 
@@ -8,7 +8,7 @@ tell application "Safari"
 	delay 5
 	set myString to source of document 1
 end tell
-set newFile to POSIX file "companies.html"
+set newFile to POSIX file "PATH here"
 open for access newFile with write permission
 write myString to newFile
 close access newFile
