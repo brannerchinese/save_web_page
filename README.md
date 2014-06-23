@@ -1,8 +1,8 @@
-## Download webpage
+## Download Webpage
 
 Download a page from a site to which you can log in. (Apple OS 10.)
 
-This is an AppleScript workaround when programmatic log-in is too complicated because of CSRF protections and authentication protocols. 
+This is a  workaround using AppleScript and Safari, when programmatic log-in is complicated because of CSRF protections and authentication protocols. 
 
 ### To run
 
