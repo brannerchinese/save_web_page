@@ -7,10 +7,21 @@ import subprocess
 import os
 import datetime
 import time
+import sys
 
 # Get base name of file to save
-with open('name_to_save_as.ignore', 'r') as f:
-    name_to_save_as = f.read()
+if os.path.exists('name_to_save_as.ignore'):
+    with open('name_to_save_as.ignore', 'r') as f:
+        name_to_save_as = f.read()
+elif os.path.exists('url.ignore'):
+    # Get path only of 
+    with open('url.ignore', 'r') as f:
+        url = f.read()
+        name_to_save_as = url.split('/')[-1].split('.')[0]
+else:
+    print('''Neither 'name_to_save_as.ignore' nor'''
+            ''' 'url.ignore' found.\nExiting.''')
+    sys.exit()
 # Run script.
 s = ['osascript', 'safari_save_page.scpt']
 # s = ['sudo', 'osascript', 'safari_save_page.scpt']
