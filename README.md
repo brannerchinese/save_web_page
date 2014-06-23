@@ -19,13 +19,13 @@ This is a Python3 program. No special modules are needed.
         ```
 sudo chown root download_webpage.py
 sudo chmod a+x download_webpage.py
-```
+        ```
 
      Then run as
 
         ```
 ./download_webpage.py
-```
+        ```
 
      Note that if you don't have root privileges, you will not be able to run this program.
      
