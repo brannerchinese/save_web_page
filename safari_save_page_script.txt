@@ -1,0 +1,12 @@
+tell application "Safari"
+	activate
+	set URL of document 1 to "qqq"
+	delay 5
+	set myString to source of document 1
+end tell
+set newFile to POSIX file "companies.html"
+open for access newFile with write permission
+write myString to newFile
+close access newFile
+tell application "Safari" to quit
+
