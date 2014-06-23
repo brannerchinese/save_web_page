@@ -1,6 +1,9 @@
+(* safari_save_page.scpt. 
+   David Prager Branner, 20140623. *)
+
 tell application "Safari"
 	activate
-	set URL of document 1 to "qqq"
+	set URL of document 1 to "URL here"
 	delay 5
 	set myString to source of document 1
 end tell
