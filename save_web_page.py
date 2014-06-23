@@ -22,16 +22,16 @@ else:
     print('''Neither 'name_to_save_as.ignore' nor'''
             ''' 'url.ignore' found.\nExiting.''')
     sys.exit()
+#
 # Run script.
 s = ['osascript', 'safari_save_page.scpt']
-# s = ['sudo', 'osascript', 'safari_save_page.scpt']
 x = subprocess.check_output(s, stderr=subprocess.STDOUT)
 while not os.path.exists(name_to_save_as + '.html'):
     time.sleep(.5)
-# Get current date as string.
+# Get current date as string; use to rename file.
 date_and_time = datetime.datetime.today()
 the_date = date_and_time.strftime('%Y%m%d-%H%M')
-# Rename and move.
 os.rename(name_to_save_as + '.html', 
         name_to_save_as +  '_' + the_date + '.ignore')
-
+#
+# Save desired content to file and compare to previous version.

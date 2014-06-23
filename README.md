@@ -9,10 +9,17 @@ This is an AppleScript workaround when programmatic log-in is too complicated be
 This is a Python3 program. No special modules are needed.
 
  1. Prepare the AppleScript.
-   2. Save the URL to a text file called `url.ignore`. (The `.ignore` is marked in to be ignored in `.gitignore`.)
-   2. Save the base name to be used for downloaded files to `name_to_save_as.ignore`. If this file is not found, then the "path" (the last section before the `.html` extension) of the URL will be used.
+   2. Save the URL to a text file called `url.ignore`. (The `.ignore` is marked in to be ignored in `.gitignore`.) The program will exit if this file is not found.
+   2. Run the program `create_script.py`; it will generate the script `safari_save_page.scpt` using the URL you have specified.
  1. Run the AppleScript (this section can be done repeatedly, as needed).
+   2. Save the base name to be used for downloaded files to `name_to_save_as.ignore`. If this file is not found, then the "path" (the last section before the `.html` extension) of the URL will be used. If neither 
    2. Log in with Safari, using your credentials for the site in question.
+   2. In order to ensure correct permissions for writing the webpage, and to make it executable from the command line, set
+
+        sudo chown root save_web_page.py
+        sudo chmod a+x save_web_page.py
+
+     Note that if you don't have root privileges, you will not be able to run this program.
 
 **Incomplete.**
 
