@@ -1,5 +1,6 @@
-(* safari_save_page.scpt. 
-   David Prager Branner, 20140623. *)
+(* File: safari_save_page.scpt
+   Author, date: David Prager Branner, 20140623
+   Open webpage and write contents to disk. *)
 
 tell application "Safari"
 	activate
