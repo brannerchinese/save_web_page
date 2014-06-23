@@ -1,6 +1,6 @@
 ## Download Webpage
 
-Download a page from a site to which you can log in. (Apple OS 10.)
+Download a page from a protected site to which you can log in. (Apple OS 10.)
 
 This is a  workaround using AppleScript and Safari, when programmatic log-in is complicated because of CSRF protections and authentication protocols. 
 
