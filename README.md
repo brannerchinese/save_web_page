@@ -36,6 +36,6 @@ sudo chmod a+x download_webpage.py
 ### To do
 
  1. Save the extracted content to file; compare newly extracted content to the last set.
- 1. Streamline the process of eliminating extraction.
+ 1. Streamline the process of eliminating extraction, for those users who don't want it.
 
 [end]
