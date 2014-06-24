@@ -6,7 +6,9 @@ This is a workaround using AppleScript and Safari, when programmatic log-in is c
 
 ### To run
 
-This is a Python3 program. No special modules are needed.
+This is a Python3 program. No special modules are needed for the main programs, but `bs4` (BeautifulSoup4) is needed for the optional `extract_content.py` program.
+
+We first generate a script using content the user supplies, then run the script to open a webpage and download it to disk. Finally, if desired, we extract the desired content using an HTML parser.
 
  1. Prepare the AppleScript.
    2. Save the URL to a text file called `url.ignore`. (The `.ignore` is marked in to be ignored in `.gitignore`.) The program will exit if this file is not found.
