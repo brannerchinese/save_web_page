@@ -1,6 +1,6 @@
 ## Download Webpage
 
-Check for changes on a page from a protected site to which you can log in. (Apple OS 10.)
+Check for changes on a page from a protected website to which you can log in. (Apple OS 10.)
 
 This is a workaround using AppleScript and Safari, when programmatic log-in is complicated because of CSRF protections and authentication protocols. 
 
