@@ -8,6 +8,7 @@ import os
 import datetime
 import time
 import sys
+import extract_content as E
 
 # Get base name of file to save.
 if os.path.exists('name_to_save_as.ignore'):
@@ -31,7 +32,8 @@ while not os.path.exists(name_to_save_as):
 # Get current date as string; use to rename file.
 date_and_time = datetime.datetime.today()
 the_date = date_and_time.strftime('%Y%m%d-%H%M')
-os.rename(name_to_save_as, 
-        name_to_save_as +  '_' + the_date + '.ignore')
+filename = name_to_save_as +  '_' + the_date + '.ignore'
+os.rename(name_to_save_as, filename)
 #
-# Save desired content to file and compare to previous version.
+# Extract desired content.
+print(E.extract(filename))

@@ -30,9 +30,12 @@ sudo chmod a+x download_webpage.py
      Note that if you don't have root privileges, you will not be able to run either this program or (independently) the script.
      
      The program should open Safari, load and then download the page you have specified, close Safari, and rename the page with the current date and time.
- 1. Compare with the previously downloaded version.
-   2. 
+ 1. Extract any desired information and compare with the previously downloaded version.
+   2. For some users it may be enough simply to run a `diff` on two different downloads of the same file, or even to compare them visually. In my own case, I needed to extract the principal content of the page. For this purpose, a program `extract_content.py` is supplied. It is called from within `download_webpage.py` and prints the content I am looking for. Users can alter this file for their own purposes; those who don't need this material can remove the last line of `download_webpage.py`.
 
-**Incomplete.**
+### To do
+
+ 1. Save the extracted content to file; compare newly extracted content to the last set.
+ 1. Streamline the process of eliminating extraction.
 
 [end]
