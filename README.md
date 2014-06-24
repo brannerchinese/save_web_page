@@ -6,7 +6,7 @@ This is a workaround using AppleScript and Safari, when programmatic log-in is c
 
 ### To run
 
-This is a Python3 program. No special modules are needed for the main programs, but `bs4` (BeautifulSoup4) is needed for the optional `extract_content.py` program.
+This is a Python3 project. No special modules are needed for the main programs, but `bs4` (BeautifulSoup4) is needed for the optional `extract_content.py` program.
 
 We first generate a script using content the user supplies, then run the script to open a webpage and download it to disk. Finally, if desired, we extract the desired content using an HTML parser.
 
