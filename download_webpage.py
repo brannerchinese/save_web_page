@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # download_webpage.py
 # David Prager Branner
-# 20140623
+# 20140623, works
 
 import subprocess
 import os

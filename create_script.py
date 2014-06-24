@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # create_script.py
 # David Prager Branner
-# 20140623
+# 20140623, works
 
 import os
 import sys
