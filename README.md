@@ -2,7 +2,7 @@
 
 Check for changes on a page from a protected site to which you can log in. (Apple OS 10.)
 
-This is a  workaround using AppleScript and Safari, when programmatic log-in is complicated because of CSRF protections and authentication protocols. 
+This is a workaround using AppleScript and Safari, when programmatic log-in is complicated because of CSRF protections and authentication protocols. 
 
 ### To run
 
@@ -27,10 +27,11 @@ sudo chmod a+x download_webpage.py
 ./download_webpage.py
         ```
 
-     Note that if you don't have root privileges, you will not be able to run this program.
+     Note that if you don't have root privileges, you will not be able to run either this program or (independently) the script.
      
      The program should open Safari, load and then download the page you have specified, close Safari, and rename the page with the current date and time.
  1. Compare with the previously downloaded version.
+   2. 
 
 **Incomplete.**
 

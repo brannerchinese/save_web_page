@@ -25,7 +25,7 @@ else:
 #
 # Run script.
 s = ['osascript', 'safari_download_webpage.scpt']
-x = subprocess.check_output(s, stderr=subprocess.STDOUT)
+subprocess.check_output(s, stderr=subprocess.STDOUT)
 while not os.path.exists(name_to_save_as):
     time.sleep(.5)
 # Get current date as string; use to rename file.
