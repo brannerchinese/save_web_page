@@ -2,7 +2,7 @@
 
 Check for changes on a page from a protected website to which you can log in. (Apple OS 10, only.)
 
-This is a workaround using AppleScript and Safari, when programmatic log-in is complicated because of CSRF protections and authentication protocols. 
+This is a workaround using AppleScript and Safari, when programmatic log-in is complicated because of CSRF protections and authentication protocols. Your authentication information is not used, and no files having the same names as the data-files used are present in this repository (in fact, they are excluded in the `.gitignore` file).
 
 ### To run
 
