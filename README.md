@@ -13,9 +13,9 @@ We first generate a script using content the user supplies, then run the script 
  1. Prepare the AppleScript.
    2. Save the URL to a text file called `url.ignore`. (The `.ignore` is marked in to be ignored in `.gitignore`.) The program will exit if this file is not found.
    2. Run the program `create_script.py`; it will generate the script `safari_save_page.scpt` using the URL you have specified.
+ 1. Log into the website with Safari, using your credentials for the site in question. This step is unconnected to the running of the programs here, but it must be done so that the browser will supply your cookie information to the site.
  1. Run the AppleScript (this section can be done repeatedly, as needed).
-   2. Save the base name to be used for downloaded files to `name_to_save_as.ignore`. If this file is not found, then the "path" (the last section before the `.html` extension) of the URL will be used. If neither 
-   2. Log in with Safari, using your credentials for the site in question.
+   2. Save the base name to be used for downloaded files to `name_to_save_as.ignore`. If this file is not found, then the "path" (the last section before the `.html` extension) of the URL will be used. If neither is found, the program exits.
    2. In order to ensure correct permissions for writing the webpage, and to make it executable from the command line, set
 
         ```
