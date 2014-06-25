@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # download_webpage.py
 # David Prager Branner
-# 20140623, works
+# 20140624, works
 
 import subprocess
 import os
@@ -9,6 +9,8 @@ import datetime
 import time
 import sys
 import extract_content as E
+
+"""Run script to download webpage and report any changed content."""
 
 def main():
     # Get base name of file to save.
@@ -36,8 +38,9 @@ def main():
     filename = name_to_save_as +  '_' + the_date + '.ignore'
     os.rename(name_to_save_as, filename)
     #
-    # Extract desired content.
-    return (E.extract(filename))
+    # Extract and return changed content.
+    print('Content unchanged?', end=' ')
+    print(E.extract(filename))
 
 if __name__ == '__main__':
     main()
