@@ -8,6 +8,7 @@ import os
 import datetime
 import time
 import sys
+import move_file
 import importlib
 
 """Run script to download webpage and report any changed content."""
@@ -42,19 +43,20 @@ def main():
     the_date = date_and_time.strftime('%Y%m%d-%H%M')
     filename = name_to_save_as +  '_' + the_date + '.ignore'
     os.rename(name_to_save_as, filename)
-    print('Content saved to file `saved_downloads/' + filename + '`.\n')
     #
     # Extract and return changed content.
     print('Content unchanged?', end=' ')
+    content = move_file.move(filename)
+    if not content:
+        sys.exit()
     # If an extraction program has been named, use it.
     if len(sys.argv) > 2:
         E = importlib.import_module(sys.argv[2])
-        print(E.extract(filename))
+        print(E.extract(content))
     # Otherwise report only the change in file-size.
     else:
         # Store size only to ..._last_found_size.txt
-        with open(filename, 'r') as f:
-            size = len(f.read())
+        size = len(content)
         size_filename = name_to_save_as + '_last_found_size.ignore'
         try:
             with open(size_filename, 'r') as f:

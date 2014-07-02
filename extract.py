@@ -10,17 +10,8 @@ import ast
 import shutil
 import os
 
-def extract(filename):
+def extract(content):
     """From a downloaded HTML file produce a list of entity-names."""
-    # Read file and move out of the way.
-    try:
-        with open(filename, 'r') as f:
-            content = f.read()
-    except FileNotFoundError:
-        return None
-    if not os.path.exists('saved_downloads'):
-        os.mkdir('saved_downloads')
-    shutil.move(filename, 'saved_downloads')
     # Parse and extract data
     soup = bs4.BeautifulSoup(content)
     x = soup.body.div.next_siblings
