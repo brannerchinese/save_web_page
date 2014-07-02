@@ -1,14 +1,17 @@
 #! /usr/bin/env python
 # create_script.py
 # David Prager Branner
-# 20140623, works
+# 20140702, works
 
 import os
 import sys
 
 script_text = 'safari_download_webpage_script.txt'
 script_name = 'safari_download_webpage.scpt'
-url_file = 'url.ignore'
+if len(sys.argv) > 1:
+    url_file = sys.argv[1] + '.ignore'
+else:
+    url_file = 'url.ignore'
 if os.path.exists(script_name):
     print('File {} already exists; exiting.'.format(script_name))
     sys.exit()

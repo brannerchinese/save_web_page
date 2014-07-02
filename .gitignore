@@ -1,3 +1,7 @@
 *.ignore
 safari_download_webpage.scpt
-last_found_names.txt
+*v_env*
+*__pycache__
+*.swp
+*.DS_Store
+*~

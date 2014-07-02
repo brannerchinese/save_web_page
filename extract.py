@@ -1,7 +1,9 @@
 #! /usr/bin/env python
-# extract_content.py
+# extract.py
 # David Prager Branner
-# 20140624, works
+# 20140702
+
+"""Extract content from a (certain but unnamed) HTML file."""
 
 import bs4
 import ast
@@ -31,14 +33,14 @@ def extract(filename):
             for x in item.find('text')])
     # Compare to previously found data.
     try:
-        with open('last_found_names.txt', 'r') as f:
+        with open('last_found_names.ignore', 'r') as f:
             last_found_names = ast.literal_eval(f.read())
     except FileNotFoundError:
         last_found_names = set()
     if last_found_names == names:
         answer = True
     else:
-        with open('last_found_names.txt', 'w') as f:
+        with open('last_found_names.ignore', 'w') as f:
             f.write(str(names))
             answer = False
     return answer, names.difference(last_found_names)
