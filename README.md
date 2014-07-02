@@ -35,13 +35,14 @@ sudo chmod a+x download_webpage.py
 ./download_webpage.py <name> <extractor>
         ```
 
-     The expression `<extractor>` is the name of whatever extraction program you have supplied. If there is none, or if it is not found the program will return only the change in size of the downloaded file, and will store the size of the downloaded file for use on the next run.
+     The expression `<extractor>` is the name of whatever extraction program you have supplied. If there is none or if it is not found, the program will return only the change in size of the downloaded file, and will store the size of the downloaded file for use on the next run.
 
      Note that if you don't have root privileges, you will not be able to run either this program or (independently) the script.
-     
+
      The program should open Safari, load and then download the page you have specified, close Safari, and rename the page with the current date and time.
- 1. Extract any desired information and compare with the previously downloaded version.
-   2. For some users it may be enough simply to run a `diff` on two different downloads of the same file, or even to compare them visually. In my own case, I needed to extract the principal content of the page. For this purpose, a program `extract_content.py` is supplied. It is called from within `download_webpage.py` and prints the content I am looking for. Users can alter this file for their own purposes; those who don't need this material can remove the last line of `download_webpage.py`.
+ 1. Running the AppleScript is followed by extraction of any desired information and comparison with the previously downloaded version.
+   2. For some users it may be enough simply to run a `diff` on two different downloads of the same file, or even to compare them visually. The default, if no `extractor` is named or supplied, is simply to report any simple change in file size of the downloaded file.
+   2. In my own case, I needed to extract the principal content of the page. For this purpose, a program `extract.py` is supplied. It is called from within `download_webpage.py` and prints the content I am looking for. Users can alter this file for their own purposes.
    2. Program `extract.py` compares the just-downloaded content to the data saved from the previous download, if found, and then moves the downloaded file to a directory `saved_downloads`. If the new data is different from the old, return the added material and save the new data for the next run.
 
 [end]
