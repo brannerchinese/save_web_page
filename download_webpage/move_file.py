@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # move_file.py
 # David Prager Branner
-# 20140702
+# 20140719
 
 """Read file and move out of the way."""
 
@@ -23,6 +23,6 @@ def move(filename):
         print('File {} could not be saved. Error:\n    {}.'.
             format(filename, e))
         return None
-    print('Content saved to file `saved_downloads/' + filename + '`.\n')
+#    print('Content saved to file `saved_downloads/' + filename + '`.\n')
     return content
 
