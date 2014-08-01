@@ -45,4 +45,19 @@ sudo chmod a+x download_webpage.py
    2. In my own case, I needed to extract the principal content of the page. For this purpose, a program `extract.py` is supplied. It is called from within `download_webpage.py` and prints the content I am looking for. Users can alter this file for their own purposes.
    2. Program `extract.py` compares the just-downloaded content to the data saved from the previous download, if found, and then moves the downloaded file to a directory `saved_downloads`. If the new data is different from the old, return the added material and save the new data for the next run.
 
+### For the `extract.py` program supplied
+
+ 1. Program returns answers the question "is the page changed or not?" If not changed, returns `True`; if changed, returns `{False, ...}` and a list of changed items.
+
+ 1. To run manually, so as to get a report on the difference between the last saved set of data and the content of any named download `<name of file>`, in the interpreter run:
+
+        import move_file as M, extract as E
+        filename = 'saved_downloads/<name of file>'
+        content = M.retrieve(filename)
+        E.main(content)
+
+   If you have some particular file of saved data to compare `<name of file>` with, save it as `<last saved data filename>`, after which the last command is
+   
+        E.main(content, <last saved data filename>)
+
 [end]
