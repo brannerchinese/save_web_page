@@ -14,7 +14,7 @@ def open(filename):
             content = f.read()
     except FileNotFoundError:
         print('File {} not found.'.format(filename))
-        return None
+        content = None
     return content
 
 def move(filename):

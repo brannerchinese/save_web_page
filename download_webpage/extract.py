@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # extract.py
 # David Prager Branner
-# 20140702
+# 20140801
 
 """Extract content from a (certain but unnamed) HTML file."""
 
@@ -23,10 +23,15 @@ def extract(content):
             if type(item) != bs4.NavigableString
             for x in item.find('text')])
     # Compare to previously found data.
-    try:
-        with open('last_found_names.ignore', 'r') as f:
-            last_found_names = ast.literal_eval(f.read())
-    except FileNotFoundError:
+#    try:
+#        with open('last_found_names.ignore', 'r') as f:
+#            last_found_names = ast.literal_eval(f.read())
+#    except FileNotFoundError:
+#        last_found_names = set()
+    content = move_file('last_found_names.ignore')
+    if content:
+        last_found_names = ast.literal_eval(content)
+    else:
         last_found_names = set()
     if last_found_names == names:
         answer = True
