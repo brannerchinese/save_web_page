@@ -1,15 +1,15 @@
 #! /usr/bin/env python
 # download_webpage.py
 # David Prager Branner
-# 20140702, works
+# 20140801, works
 
 import subprocess
 import os
-import datetime
 import time
 import sys
 import move_file
 import importlib
+import make_date
 
 """Run script to download webpage and report any changed content."""
 
@@ -39,8 +39,7 @@ def main():
     while not os.path.exists(name_to_save_as):
         time.sleep(.5)
     # Get current date as string; use to rename file.
-    date_and_time = datetime.datetime.today()
-    the_date = date_and_time.strftime('%Y%m%d-%H%M')
+    the_date = make_date.make_date()
     filename = name_to_save_as +  '_' + the_date + '.ignore'
     os.rename(name_to_save_as, filename)
     #
@@ -52,7 +51,7 @@ def main():
     # If an extraction program has been named, use it.
     if len(sys.argv) > 2:
         E = importlib.import_module(sys.argv[2])
-        print(E.extract(content))
+        print(E.main(content))
     # Otherwise report only the change in file-size.
     else:
         # Store size only to ..._last_found_size.txt

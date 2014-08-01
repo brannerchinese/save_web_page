@@ -3,12 +3,21 @@
 # David Prager Branner
 # 20140801
 
-"""Extract content from a (certain but unnamed) HTML file."""
+"""Report whether the list of names is changed or not."""
 
 import bs4
 import ast
 import shutil
 import os
+import move_file
+
+def main(content, filename='last_found_names.ignore'):
+    names = extract(content)
+    difference = compare(names, filename)
+    if difference:
+        return False, difference
+    else:
+        return True
 
 def extract(content):
     """From a downloaded HTML file produce a list of entity-names."""
@@ -22,21 +31,20 @@ def extract(content):
     names = set([x.strip() for item in x.ul
             if type(item) != bs4.NavigableString
             for x in item.find('text')])
+    return names
+
+def compare(names, filename):
+    """Report difference between content of `names` and `filename`."""
     # Compare to previously found data.
-#    try:
-#        with open('last_found_names.ignore', 'r') as f:
-#            last_found_names = ast.literal_eval(f.read())
-#    except FileNotFoundError:
-#        last_found_names = set()
-    content = move_file('last_found_names.ignore')
+    content = move_file.retrieve(filename)
     if content:
         last_found_names = ast.literal_eval(content)
     else:
         last_found_names = set()
-    if last_found_names == names:
-        answer = True
-    else:
-        with open('last_found_names.ignore', 'w') as f:
+    # We use `difference` to show what is in `names` because we assume that
+    # `names` is more often the newer data.
+    difference = names.difference(last_found_names)
+    if difference:
+        with open(filename, 'w') as f:
             f.write(str(names))
-            answer = False
-    return answer, names.difference(last_found_names)
+    return difference

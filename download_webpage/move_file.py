@@ -8,7 +8,8 @@
 import os
 import shutil
 
-def open(filename):
+def retrieve(filename):
+    """Return content of file."""
     try:
         with open(filename, 'r') as f:
             content = f.read()
@@ -18,7 +19,8 @@ def open(filename):
     return content
 
 def move(filename):
-    content = open(filename)
+    """Move file and return its content."""
+    content = retrieve(filename)
     if not os.path.exists('saved_downloads'):
         os.mkdir('saved_downloads')
     try:
@@ -26,7 +28,7 @@ def move(filename):
     except shutil.Error as e:
         print('File {} could not be saved. Error:\n    {}.'.
             format(filename, e))
-        return None
+        content = None
 #    print('Content saved to file `saved_downloads/' + filename + '`.\n')
     return content
 
