@@ -1,12 +1,13 @@
 #! /usr/bin/env python
 # move_file.py
 # David Prager Branner
-# 20140801
+# 20140802
 
 """Read file and move out of the way."""
 
 import os
 import shutil
+import sys
 
 def retrieve(filename):
     """Return content of file."""
@@ -26,9 +27,9 @@ def move(filename):
     try:
         shutil.move(filename, 'saved_downloads')
     except shutil.Error as e:
-        print('File {} could not be saved. Error:\n    {}.'.
-            format(filename, e))
-        content = None
-#    print('Content saved to file `saved_downloads/' + filename + '`.\n')
+        print('''\n    File {} could not be saved. Error:'''
+                '''\n    "{}."\n    Exiting.'''.format(filename, e))
+        os.remove(filename)
+        sys.exit()
     return content
 
