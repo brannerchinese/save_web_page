@@ -58,7 +58,7 @@ def main():
         size = len(content)
         size_filename = name_to_save_as + '_last_found_size.ignore'
         try:
-            with open(size_filename, 'r') as f:
+            with open(size_filename, 'rb') as f:
                 last_size = int(f.read())
         except FileNotFoundError:
             print('No previous file {} found.'.format(size_filename))

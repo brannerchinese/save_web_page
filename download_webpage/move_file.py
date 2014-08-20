@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # move_file.py
 # David Prager Branner
-# 20140802
+# 20140819
 
 """Read file and move out of the way."""
 
@@ -12,10 +12,13 @@ import sys
 def retrieve(filename):
     """Return content of file."""
     try:
-        with open(filename, 'r') as f:
+        with open(filename, 'rb') as f:
             content = f.read()
     except FileNotFoundError:
         print('File {} not found.'.format(filename))
+        content = None
+    except UnicodeDecodeError:
+        print('Unicode error in file {}.'.format(filename))
         content = None
     return content
 
